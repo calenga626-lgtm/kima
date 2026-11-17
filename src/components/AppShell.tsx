@@ -102,10 +102,10 @@ export const AppShell: React.FC<AppShellProps> = ({ title, backTo, children }) =
       {/* Desktop Left Navigation Rail */}
       <aside className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 bg-[#062C24] text-white border-r border-[#0F473B] z-30">
         <div className="px-5 py-5 border-b border-white/10">
-          <BrandLogo variant="light" size="sm" showSlogan />
+          <BrandLogo variant="light" size="md" showSlogan />
         </div>
 
-        <div className="px-5 py-3 text-[11px] font-semibold tracking-wider text-[#A3E635] uppercase">
+        <div className="px-5 pt-4 pb-2 text-[11px] font-semibold tracking-wider text-[#A3E635]">
           {roleLabel}
         </div>
 
@@ -204,27 +204,34 @@ export const AppShell: React.FC<AppShellProps> = ({ title, backTo, children }) =
         <header className="sticky top-0 z-30 h-[52px] bg-white/95 backdrop-blur-md border-b border-[#E2EAE7] px-4 lg:px-8 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 min-w-0">
             {backTo ? (
-              <button
-                type="button"
-                onClick={() => navigate(backTo)}
-                aria-label="Voltar"
-                className="min-w-[44px] min-h-[44px] -ml-2 flex items-center justify-center rounded-xl text-[#062C24] hover:bg-[#F1F6F4] transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5" />
-              </button>
+              <>
+                <button
+                  type="button"
+                  onClick={() => navigate(backTo)}
+                  aria-label="Voltar"
+                  className="min-w-[44px] min-h-[44px] -ml-2 flex items-center justify-center rounded-xl text-[#062C24] hover:bg-[#F1F6F4] transition-colors"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <h1 className="text-base lg:text-lg font-bold text-[#062C24] truncate">
+                  {title}
+                </h1>
+              </>
             ) : (
-              <button
-                type="button"
-                onClick={() => navigate(navItems[0].id)}
-                className="lg:hidden flex items-center"
-                aria-label="Início KIMAKWAMI FITNESS"
-              >
-                <BrandLogo size="sm" />
-              </button>
+              <>
+                <button
+                  type="button"
+                  onClick={() => navigate(navItems[0].id)}
+                  className="lg:hidden flex items-center"
+                  aria-label="Início KIMAKWAMI FITNESS"
+                >
+                  <BrandLogo size="sm" />
+                </button>
+                <h1 className="hidden lg:block text-lg font-bold text-[#062C24] truncate">
+                  {title}
+                </h1>
+              </>
             )}
-            <h1 className="text-base lg:text-lg font-bold text-[#062C24] truncate">
-              {backTo || role ? title : ''}
-            </h1>
           </div>
 
           <div className="flex items-center gap-1.5 shrink-0">

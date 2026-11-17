@@ -34,7 +34,7 @@ import {
   isValidAngolaPhone,
   isValidEmail,
 } from '../utils/formatters';
-import { AvatarImage, StatusLabel } from '../components/BrandLogo';
+import { AvatarImage, BrandMarkIcon, StatusLabel } from '../components/BrandLogo';
 import { EvolutionLineChart, SimpleBarChart } from '../components/Charts';
 import { ModalSheet } from '../components/ModalSheet';
 
@@ -62,7 +62,19 @@ export const AdminDashboardScreen: React.FC = () => {
   return (
     <div className="space-y-5">
       {/* Admin Hero Card */}
-      <section className="rounded-2xl bg-[#062C24] text-white p-5 sm:p-6">
+      <section className="rounded-2xl bg-gradient-to-br from-[#08382D] via-[#062C24] to-[#041E18] border border-[#145849] text-white p-5 sm:p-6">
+        <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/10">
+          <div className="flex items-center gap-2">
+            <BrandMarkIcon size={24} variant="light" />
+            <span className="font-display text-[11px] font-bold tracking-[0.16em] text-emerald-100/90">
+              KIMAKWAMI GESTÃO
+            </span>
+          </div>
+          <span className="text-[11px] font-mono text-[#A3E635]">
+            Painel Executivo
+          </span>
+        </div>
+
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3.5 min-w-0">
             <AvatarImage

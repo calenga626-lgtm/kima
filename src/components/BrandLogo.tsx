@@ -2,6 +2,68 @@ import React, { useState } from 'react';
 import { AlertCircle, CheckCircle2, Clock3, User } from 'lucide-react';
 import { MembershipStatus, PaymentStatus, SessionStatus } from '../types/kimakwami';
 
+interface BrandMarkIconProps {
+  size?: number;
+  variant?: 'light' | 'dark';
+  className?: string;
+}
+
+export const BrandMarkIcon: React.FC<BrandMarkIconProps> = ({
+  size = 38,
+  variant = 'dark',
+  className = '',
+}) => {
+  const bgFill = variant === 'light' ? '#0A3A2F' : '#062C24';
+  const ringStroke = variant === 'light' ? 'rgba(163, 230, 53, 0.38)' : 'rgba(16, 185, 129, 0.35)';
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      className={`shrink-0 ${className}`}
+    >
+      {/* Architectural Octagonal Crest */}
+      <path
+        d="M14 3.5H34L44.5 14V34L34 44.5H14L3.5 34V14L14 3.5Z"
+        fill={bgFill}
+        stroke={ringStroke}
+        strokeWidth="1.5"
+      />
+      {/* Inner Precision Frame */}
+      <path
+        d="M15.5 6.5H32.5L41.5 15.5V32.5L32.5 41.5H15.5L6.5 32.5V15.5L15.5 6.5Z"
+        stroke="rgba(255,255,255,0.08)"
+        strokeWidth="1"
+      />
+      {/* Vertical Pillar of K */}
+      <path
+        d="M15.5 13V35"
+        stroke="#FFFFFF"
+        strokeWidth="4"
+        strokeLinecap="square"
+      />
+      {/* Lower Kinetic Thrust */}
+      <path
+        d="M21 24.5L32.5 35"
+        stroke="#10B981"
+        strokeWidth="4"
+        strokeLinecap="square"
+      />
+      {/* Ascending Apex Vector */}
+      <path
+        d="M19.5 25L33 13"
+        stroke="#A3E635"
+        strokeWidth="4"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+};
+
 interface BrandLogoProps {
   variant?: 'light' | 'dark';
   size?: 'sm' | 'md' | 'lg';
@@ -13,61 +75,49 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   size = 'md',
   showSlogan = false,
 }) => {
-  const iconDim = size === 'sm' ? 30 : size === 'lg' ? 48 : 36;
-  const titleClass =
-    size === 'sm'
-      ? 'text-sm font-extrabold tracking-tight'
-      : size === 'lg'
-      ? 'text-2xl font-extrabold tracking-tight'
-      : 'text-base font-extrabold tracking-tight';
-
+  const iconDim = size === 'sm' ? 32 : size === 'lg' ? 48 : 38;
   const primaryText = variant === 'light' ? 'text-white' : 'text-[#062C24]';
   const accentText = variant === 'light' ? 'text-[#A3E635]' : 'text-[#059669]';
-  const sloganText = variant === 'light' ? 'text-emerald-100/80' : 'text-[#4A635D]';
+  const sloganText = variant === 'light' ? 'text-emerald-100/75' : 'text-[#4A635D]';
+
+  if (size === 'sm') {
+    return (
+      <div className="flex items-center gap-2.5 shrink-0">
+        <BrandMarkIcon size={iconDim} variant={variant} />
+        <div className="flex flex-col leading-none">
+          <span className={`font-display text-sm font-extrabold tracking-[0.04em] whitespace-nowrap ${primaryText}`}>
+            KIMAKWAMI <span className={`font-bold ${accentText}`}>FITNESS</span>
+          </span>
+          {showSlogan && (
+            <span className={`text-[10px] font-medium mt-1 ${sloganText}`}>
+              A tua evolução. A nossa missão.
+            </span>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="flex items-center gap-2.5 shrink-0">
-      <svg
-        width={iconDim}
-        height={iconDim}
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        className="shrink-0"
-      >
-        <rect
-          width="48"
-          height="48"
-          rx="14"
-          fill={variant === 'light' ? '#0B3F34' : '#062C24'}
-        />
-        <path
-          d="M14 12V36"
-          stroke="#FFFFFF"
-          strokeWidth="4.2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M33 13L20.5 24L33 35"
-          stroke="#10B981"
-          strokeWidth="4.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M27 12L35 19.5"
-          stroke="#A3E635"
-          strokeWidth="3.5"
-          strokeLinecap="round"
-        />
-      </svg>
+    <div className="flex items-center gap-3 shrink-0">
+      <BrandMarkIcon size={iconDim} variant={variant} />
       <div className="flex flex-col leading-none">
-        <span className={`font-display whitespace-nowrap ${titleClass} ${primaryText}`}>
-          KIMAKWAMI <span className={accentText}>FITNESS</span>
+        <span
+          className={`font-display font-extrabold tracking-[0.05em] whitespace-nowrap ${
+            size === 'lg' ? 'text-2xl' : 'text-lg'
+          } ${primaryText}`}
+        >
+          KIMAKWAMI
+        </span>
+        <span
+          className={`font-display font-bold tracking-[0.26em] whitespace-nowrap mt-0.5 ${
+            size === 'lg' ? 'text-[11px]' : 'text-[10px]'
+          } ${accentText}`}
+        >
+          FITNESS
         </span>
         {showSlogan && (
-          <span className={`text-[11px] font-medium mt-1 ${sloganText}`}>
+          <span className={`text-[11px] font-medium mt-1.5 ${sloganText}`}>
             A tua evolução. A nossa missão.
           </span>
         )}

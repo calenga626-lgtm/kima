@@ -21,34 +21,36 @@ export const WelcomeScreen: React.FC = () => {
   const { navigate, loginDemo } = useApp();
 
   return (
-    <div className="min-h-screen bg-[#062C24] text-white flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-[#08382D] via-[#062C24] to-[#031B16] text-white flex flex-col">
       {/* Top minimal bar */}
-      <header className="px-5 py-4 flex items-center justify-between max-w-6xl w-full mx-auto">
-        <BrandLogo variant="light" size="md" />
-        <button
-          type="button"
-          onClick={() => navigate('login')}
-          className="min-h-[44px] px-4 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-semibold text-white transition-colors whitespace-nowrap"
-        >
-          Entrar na Conta
-        </button>
+      <header className="px-5 py-4 border-b border-white/10">
+        <div className="flex items-center justify-between max-w-6xl w-full mx-auto">
+          <BrandLogo variant="light" size="md" />
+          <button
+            type="button"
+            onClick={() => navigate('login')}
+            className="min-h-[44px] px-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 text-xs font-semibold text-white transition-colors whitespace-nowrap"
+          >
+            Entrar na Conta
+          </button>
+        </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-5 pb-10 pt-2 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-5 pb-10 pt-6 lg:pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-6 space-y-6">
-          <div className="space-y-3">
-            <p className="text-xs font-semibold tracking-wider text-[#A3E635] uppercase">
-              Luanda · Talatona & Miramar
+          <div className="space-y-3.5">
+            <p className="text-xs font-semibold tracking-wide text-[#A3E635]">
+              Clube de Treino & Performance · Talatona e Miramar
             </p>
-            <h1 className="text-3xl sm:text-5xl font-extrabold font-display leading-[1.1] text-balance">
+            <h1 className="text-3xl sm:text-5xl font-extrabold font-display leading-[1.08] tracking-tight text-balance">
               A tua evolução.{' '}
               <span className="text-[#A3E635]">A nossa missão.</span>
             </h1>
             <p className="text-sm sm:text-base text-emerald-100/85 leading-relaxed max-w-xl">
-              Plataforma digital da KIMAKWAMI FITNESS para gerir a tua adesão, treinar com planos
-              personalizados, marcar sessões com Personal Trainers e acompanhar cada marco da tua
-              evolução física em Angola.
+              Plataforma digital oficial da KIMAKWAMI FITNESS para gerir a tua adesão, treinar
+              com planos personalizados, agendar sessões com Personal Trainers e acompanhar cada
+              marco da tua evolução física.
             </p>
           </div>
 
@@ -65,14 +67,14 @@ export const WelcomeScreen: React.FC = () => {
             <button
               type="button"
               onClick={() => navigate('register')}
-              className="min-h-[48px] px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm flex items-center justify-center transition-colors whitespace-nowrap"
+              className="min-h-[48px] px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold text-sm flex items-center justify-center transition-colors whitespace-nowrap"
             >
               Criar Conta de Cliente
             </button>
           </div>
 
           {/* Instant 3-Role Demo Access */}
-          <div className="pt-2 border-t border-white/10">
+          <div className="pt-4 border-t border-white/10">
             <p className="text-xs font-medium text-emerald-100/75 mb-3">
               Acesso rápido demonstrativo por perfil
             </p>
@@ -80,7 +82,7 @@ export const WelcomeScreen: React.FC = () => {
               <button
                 type="button"
                 onClick={() => loginDemo('client')}
-                className="min-h-[52px] px-3.5 py-2.5 rounded-xl bg-[#0B3F34] hover:bg-[#115345] border border-white/10 text-left flex items-center gap-3 transition-colors"
+                className="min-h-[54px] px-3.5 py-2.5 rounded-xl bg-[#0A3A2F]/90 hover:bg-[#115345] border border-white/12 text-left flex items-center gap-3 transition-colors"
               >
                 <User className="w-5 h-5 text-[#A3E635] shrink-0" />
                 <div className="min-w-0">
@@ -92,7 +94,7 @@ export const WelcomeScreen: React.FC = () => {
               <button
                 type="button"
                 onClick={() => loginDemo('trainer')}
-                className="min-h-[52px] px-3.5 py-2.5 rounded-xl bg-[#0B3F34] hover:bg-[#115345] border border-white/10 text-left flex items-center gap-3 transition-colors"
+                className="min-h-[54px] px-3.5 py-2.5 rounded-xl bg-[#0A3A2F]/90 hover:bg-[#115345] border border-white/12 text-left flex items-center gap-3 transition-colors"
               >
                 <UserCheck className="w-5 h-5 text-[#A3E635] shrink-0" />
                 <div className="min-w-0">
@@ -104,7 +106,7 @@ export const WelcomeScreen: React.FC = () => {
               <button
                 type="button"
                 onClick={() => loginDemo('admin')}
-                className="min-h-[52px] px-3.5 py-2.5 rounded-xl bg-[#0B3F34] hover:bg-[#115345] border border-white/10 text-left flex items-center gap-3 transition-colors"
+                className="min-h-[54px] px-3.5 py-2.5 rounded-xl bg-[#0A3A2F]/90 hover:bg-[#115345] border border-white/12 text-left flex items-center gap-3 transition-colors"
               >
                 <Shield className="w-5 h-5 text-[#A3E635] shrink-0" />
                 <div className="min-w-0">
@@ -118,22 +120,22 @@ export const WelcomeScreen: React.FC = () => {
 
         {/* Hero Visual */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-[#0B3F34] aspect-video">
+          <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-[#0A3A2F] aspect-video shadow-xl">
             <img
               src={ASSETS.heroGym}
-              alt="Espaço de treino moderno da KIMAKWAMI FITNESS em Luanda"
+              alt="Espaço de treino moderno da KIMAKWAMI FITNESS"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#031B16]/85 via-[#031B16]/25 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#031B16]/90 via-[#031B16]/30 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold text-[#A3E635]">Unidade Talatona & Miramar</p>
+                <p className="text-xs font-semibold text-[#A3E635]">Unidades Talatona & Miramar</p>
                 <p className="text-sm sm:text-base font-bold text-white mt-0.5">
                   Equipamento de alto rendimento e acompanhamento técnico
                 </p>
               </div>
-              <div className="hidden sm:flex items-center gap-1.5 text-xs text-emerald-100 shrink-0">
+              <div className="hidden sm:flex items-center gap-1.5 text-xs font-medium text-emerald-100 shrink-0">
                 <MapPin className="w-4 h-4 text-[#A3E635]" />
                 <span>Namibe, AO</span>
               </div>
@@ -141,17 +143,17 @@ export const WelcomeScreen: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-3 gap-3">
-            <div className="p-3.5 rounded-2xl bg-[#0B3F34] border border-white/10">
+            <div className="p-3.5 rounded-2xl bg-[#0A3A2F]/80 border border-white/10">
               <Dumbbell className="w-5 h-5 text-[#A3E635] mb-2" />
               <p className="text-xs font-bold text-white">Planos à medida</p>
               <p className="text-[11px] text-emerald-100/70 mt-0.5">Séries, cargas e metas</p>
             </div>
-            <div className="p-3.5 rounded-2xl bg-[#0B3F34] border border-white/10">
+            <div className="p-3.5 rounded-2xl bg-[#0A3A2F]/80 border border-white/10">
               <TrendingUp className="w-5 h-5 text-[#A3E635] mb-2" />
               <p className="text-xs font-bold text-white">Evolução real</p>
               <p className="text-[11px] text-emerald-100/70 mt-0.5">Gráficos de bioimpedância</p>
             </div>
-            <div className="p-3.5 rounded-2xl bg-[#0B3F34] border border-white/10">
+            <div className="p-3.5 rounded-2xl bg-[#0A3A2F]/80 border border-white/10">
               <CheckCircle2 className="w-5 h-5 text-[#A3E635] mb-2" />
               <p className="text-xs font-bold text-white">Gestão em Kz</p>
               <p className="text-[11px] text-emerald-100/70 mt-0.5">Multicaixa e renovações</p>
