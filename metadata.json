@@ -1,0 +1,8 @@
+{
+  "name": "KIMAKWAMI FITNESS",
+  "description": "Plataforma digital mobile-first para gestão de ginásio e acompanhamento físico em Angola. A tua evolução. A nossa missão.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
